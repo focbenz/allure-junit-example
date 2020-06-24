@@ -31,7 +31,7 @@
         <dependency>
             <groupId>io.qameta.allure</groupId>
             <artifactId>allure-junit4</artifactId>
-            <version>2.13.1</version>
+            <version>2.13.3</version>
         </dependency>
         <dependency>
             <groupId>io.github.bonigarcia</groupId>
@@ -49,6 +49,12 @@
             <version>1.13.1</version>
             <scope>test</scope>
         </dependency>
+        <dependency>
+            <groupId>io.qameta.allure</groupId>
+            <artifactId>allure-descriptions-javadoc</artifactId>
+            <version>2.13.3</version>
+            <scope>provided</scope>
+        </dependency>
     </dependencies>
 
     <build>
@@ -58,7 +64,7 @@
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>2.22.2</version>
                 <configuration>
-			        <useSystemClassLoader>false</useSystemClassLoader>
+                    <useSystemClassLoader>false</useSystemClassLoader>
                     <argLine>
                         -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"
                     </argLine>
@@ -68,13 +74,13 @@
                             <value>io.qameta.allure.junit4.AllureJunit4</value>
                         </property>
                     </properties>
-                    <systemProperties>		
-                         <property>		
-                             <name>allure.results.directory</name>		
-                             <value>${project.build.directory}/allure-results</value>		
-                         </property>		
+                    <systemProperties>
+                         <property>
+                             <name>allure.results.directory</name>
+                             <value>${project.build.directory}/allure-results</value>
+                         </property>
                      </systemProperties>
-                </configuration>                     
+                </configuration>
                 <dependencies>
                     <dependency>
                         <groupId>org.aspectj</groupId>

@@ -15,6 +15,8 @@ import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.junit.Assert.fail;
 
+import io.qameta.allure.Description;
+
 /**
  * @author Dmitry Baev charlie@yandex-team.ru
  *         Date: 24.11.13
@@ -60,5 +62,14 @@ public class SimpleTest {
             fail("Couldn't find resource 'sample.csv'");
         }
         return Files.readAllBytes(Paths.get(resource.toURI()));
+    }
+
+    /**
+     * This Javadoc describes the test that just passes. Demonstrates the use of Javadoc as test description.
+     */
+    @Test
+    @Description(useJavaDoc = true)
+    public void simpleTestWithDescriptionFromJavadoc() throws Exception {
+        assertThat(1, is(1));
     }
 }
